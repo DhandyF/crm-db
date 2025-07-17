@@ -1,7 +1,9 @@
 # MySQL Docker Setup for CRM Project
 
 This repository provides a Docker setup to run a **MySQL 8.0** database for the CRM system.  
-It is designed to be used for local development, especially for applications like [CRM-API](https://github.com/DhandyF/crm-api) and other services via a shared Docker network..
+It is designed to work with:
+- [crm-ui](https://github.com/DhandyF/crm-ui) (Frontend - Vue 2)
+- [crm-api](https://github.com/DhandyF/crm-api) (Backend - Laravel 12)
 
 ---
 
@@ -55,4 +57,26 @@ Root Password: root
 
 ```bash
 docker-compose down
+```
+
+---
+
+## 🧩 Running the Full CRM Stack in Docker
+To run the entire CRM application including the frontend, backend, and database, follow this order:
+
+### 1. Start the Database First
+```bash
+docker-compose up -d  # Run from this repo
+```
+
+### 2. Start the Laravel API (crm-api)
+Go to your crm-api directory and run:
+```bash
+docker-compose up -d --build
+```
+
+### 3. Start the Vue Frontend (crm-ui)
+Go to your crm-ui directory and run:
+```bash
+docker-compose up -d
 ```
