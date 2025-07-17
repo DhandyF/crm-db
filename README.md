@@ -48,9 +48,7 @@ Root Password: root
 ```
 
 > 🐳 If you're accessing the database from another Docker container (e.g., Laravel app), it will be available at:
-
 > - Host: crm-db
-
 > - Port: 3306 (container's internal port)
 
 ### 3. Stop MySQL Container
