@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  crm-db:
+    image: mysql:8.0
+    container_name: crm-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: crm
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3308:3306"
+    networks:
+      - crm-network
+
+volumes:
+  mysql_data:
+
+networks:
+  crm-network:
+    external: true
